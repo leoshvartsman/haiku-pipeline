@@ -14,11 +14,7 @@ Quick steps (copy/paste into a Colab cell)
 !sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended texlive-latex-extra fonts-dejavu-core fonts-dejavu-extra
 !fc-cache -fv
 
-# 3) If you haven't committed font files, upload/copy them into book_formatter/templates/
-# Example copying from a Drive mount:
-# %cp /content/drive/MyDrive/fonts/*.ttf book_formatter/templates/
-
-# 4) Run the formatter ensuring --templates points to the templates folder and cover path is correct
+# 3) Run the formatter ensuring --templates points to the templates folder and cover path is correct
 !python3 book_formatter/book_formatter.py input/yourfile.txt \
   --cover book_formatter/templates/cover.jpg \
   --templates book_formatter/templates \
@@ -28,17 +24,10 @@ Quick steps (copy/paste into a Colab cell)
   --font-size 12pt
 
 Notes
-- We added a Pandoc `--resource-path` inside `book_formatter.py` so Pandoc will search the current directory and the templates folder for CSS, images and fonts.
-- To make EPUBs look identical across readers, include the desired TTF/OTF font files in `book_formatter/templates/` and add `@font-face` rules in `book_formatter/templates/ebook.css` (an example `@font-face` has been added).
-- For PDF parity, Colab must have XeLaTeX and the fonts available. Installing system fonts (apt) and/or committing the fonts to the repo helps.
-
-Recommended repo changes
-- Commit `book_formatter/templates/` including:
-  - `ebook.css` (already in repo)
-  - any TTF/OTF font files you want to use
-  - your cover image(s)
+- EB Garamond (SIL Open Font License) is committed in `book_formatter/templates/fonts/` and is automatically embedded into EPUBs via `--epub-embed-font`.
+- Both `ebook.css` and `ebook-poetry.css` include `@font-face` rules that reference these font files.
+- Pandoc `--resource-path` is set inside `book_formatter.py` so Pandoc searches the current directory and the templates folder for CSS, images and fonts.
+- For PDF parity, Colab must have XeLaTeX and the Palatino font available. Installing system fonts (apt) handles this.
 
 Verification
-- After running, check `out/` for generated files and open them (Calibre viewer for EPUB; any PDF viewer for PDF) to confirm font sizes and cover presence.
-
-If you'd like, I can prepare a tiny script to copy chosen font files from a fonts/ directory into the templates folder automatically during the Colab run.
+- After running, check `out/` for generated files and open them (Calibre viewer for EPUB; any PDF viewer for PDF) to confirm fonts and cover presence.

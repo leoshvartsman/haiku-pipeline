@@ -156,6 +156,10 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
     out_dir.mkdir(parents=True, exist_ok=True)
     outputs = {}
 
+    # Map user-friendly page sizes to LaTeX geometry names
+    papersize_map = {"letter": "letterpaper", "a4": "a4paper", "a5": "a5paper"}
+    latex_papersize = papersize_map.get(page_size.lower(), page_size)
+
     # Select templates based on poetry detection
     css_file = "ebook-poetry.css" if not enable_toc else "ebook.css"
     latex_template = "latex-poetry.tex" if not enable_toc else "latex-template.tex"
@@ -179,6 +183,11 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
         ])
         # Ensure pandoc can find CSS, images and font files inside the repo/templates
         cmd.extend(["--resource-path", f".:{str(template_dir)}"])
+        # Embed font files so EPUBs render consistently across readers
+        fonts_dir = template_dir / "fonts"
+        if fonts_dir.is_dir():
+            for font_file in sorted(fonts_dir.glob("*.ttf")) + sorted(fonts_dir.glob("*.otf")):
+                cmd.extend(["--epub-embed-font", str(font_file)])
         run_cmd(cmd)
         outputs['epub'] = epub_out
 
@@ -193,8 +202,7 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             "--template",
             str(template_dir / latex_template),
             "--pdf-engine=xelatex",
-            f"-V geometry:margin=1in",
-            f"-V papersize:{page_size}",
+            f"-V papersize:{latex_papersize}",
             f"-V fontsize={font_size}",
         ]
         if enable_toc:
@@ -225,6 +233,11 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             ])
             # Make sure resources referenced from templates are found for the temporary EPUB
             cmd.extend(["--resource-path", f".:{str(template_dir)}"])
+            # Embed font files so EPUBs render consistently across readers
+            fonts_dir = template_dir / "fonts"
+            if fonts_dir.is_dir():
+                for font_file in sorted(fonts_dir.glob("*.ttf")) + sorted(fonts_dir.glob("*.otf")):
+                    cmd.extend(["--epub-embed-font", str(font_file)])
             run_cmd(cmd)
             outputs['epub'] = epub_temp
         mobi_out = out_dir / f"{slugify(title or md_file.stem)}.mobi"
