@@ -1,5 +1,23 @@
 /* Award-Winning EPUB Design Template */
 
+/* Example: include font files shipped with the templates directory.
+   Put your .ttf/.otf files in the same templates folder (or a templates/fonts/ subfolder)
+   and ensure Pandoc is run with `--resource-path` so these are bundled into the EPUB.
+
+   Example below assumes a font file named IowanOldStyle-Regular.ttf placed next to this CSS.
+*/
+@font-face {
+  font-family: "MySerif";
+  src: url("IowanOldStyle-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Prefer the shipped font where available */
+body {
+  font-family: "MySerif", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif !important;
+}
+
 /* Typography & Layout Foundation */
 body {
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;

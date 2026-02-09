@@ -177,6 +177,8 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             "--css",
             str(template_dir / css_file),
         ])
+        # Ensure pandoc can find CSS, images and font files inside the repo/templates
+        cmd.extend(["--resource-path", f".:{str(template_dir)}"])
         run_cmd(cmd)
         outputs['epub'] = epub_out
 
@@ -197,6 +199,8 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
         ]
         if enable_toc:
             cmd.append("--toc")
+        # Ensure pandoc/xelatex can resolve any images or font files referenced in templates
+        cmd.extend(["--resource-path", f".:{str(template_dir)}"])
         run_cmd(cmd)
         outputs['pdf'] = pdf_out
 
@@ -219,6 +223,8 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
                 "--css",
                 str(template_dir / css_file),
             ])
+            # Make sure resources referenced from templates are found for the temporary EPUB
+            cmd.extend(["--resource-path", f".:{str(template_dir)}"])
             run_cmd(cmd)
             outputs['epub'] = epub_temp
         mobi_out = out_dir / f"{slugify(title or md_file.stem)}.mobi"
