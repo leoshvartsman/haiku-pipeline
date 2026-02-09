@@ -1,0 +1,21 @@
+# API keys
+.env
+
+# Generated output
+haiku-generator/haiku_output/
+book_formatter/output/
+book_formatter/out/
+book_formatter/test_output/
+
+# Zip archive
+haiku-pipeline.zip
+
+# Pip artifacts
+haiku-generator/=*
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store

@@ -1,0 +1,461 @@
+{
+  "metadata": {
+    "title": "Comprehensive Haiku Themes Database",
+    "description": "500+ themes from global literary canon, combining traditional kigo with contemporary subjects",
+    "sources": [
+      "Classical Japanese kigo system",
+      "Modern haiku movements (2024-2026)",
+      "Global haiku literary canon"
+    ],
+    "last_updated": "2026-02-03"
+  },
+
+  "traditional_seasonal": {
+    "spring": {
+      "heavens": [
+        "spring sky", "spring dawn", "spring dusk", "spring night",
+        "spring moon", "spring stars", "spring clouds", "spring rain",
+        "spring mist", "spring haze", "vernal equinox", "lengthening days",
+        "warm front", "gentle breeze", "spring thunder", "rainbow after rain"
+      ],
+      "earth": [
+        "thawing ice", "melting snow", "muddy fields", "spring floods",
+        "mountain streams", "spring water", "young grass", "spring garden",
+        "tilled fields", "first green", "budding trees", "moss growing"
+      ],
+      "humanity": [
+        "spring clothing", "sowing seeds", "planting rice", "spring cleaning",
+        "kite flying", "picnicking", "flower viewing", "spring festival",
+        "graduation", "school entrance", "moving house", "spring vacation"
+      ],
+      "observances": [
+        "Hinamatsuri", "cherry blossom viewing", "Buddha's birthday",
+        "spring equinox", "first tea ceremony", "spring purification"
+      ],
+      "animals": [
+        "returning birds", "skylark", "swallow", "nightingale",
+        "butterflies", "bees", "tadpoles", "frogs", "young deer",
+        "nesting birds", "hatching eggs", "mating season"
+      ],
+      "plants": [
+        "cherry blossoms", "plum blossoms", "peach blossoms", "pear blossoms",
+        "magnolia", "wisteria", "azalea", "dandelion", "violets",
+        "spring flowers", "new leaves", "bamboo shoots", "ferns unfurling"
+      ]
+    },
+
+    "summer": {
+      "heavens": [
+        "summer sky", "summer clouds", "summer moon", "short nights",
+        "summer stars", "milky way", "summer rain", "sudden shower",
+        "lightning", "rainbow", "heat haze", "sultry heat",
+        "cool breeze", "thunder clouds", "summer storm", "first star"
+      ],
+      "earth": [
+        "summer mountains", "summer river", "waterfall", "summer sea",
+        "sandy beach", "rocky shore", "summer pond", "lotus pond",
+        "green rice paddies", "summer fields", "garden in bloom", "summer path"
+      ],
+      "humanity": [
+        "summer clothes", "straw hat", "paper fan", "mosquito net",
+        "cool evening", "evening cool", "sleeping outdoors", "swimming",
+        "fishing", "boating", "summer vacation", "summer festival",
+        "fireworks", "night stalls", "iced drinks", "watermelon"
+      ],
+      "observances": [
+        "Tanabata", "Obon festival", "summer solstice", "grave visiting",
+        "bon dance", "lantern floating", "summer retreat"
+      ],
+      "animals": [
+        "cicadas", "dragonflies", "fireflies", "mosquitoes",
+        "butterflies", "grasshoppers", "frogs", "snakes",
+        "cormorants", "herons", "cuckoo", "summer birds"
+      ],
+      "plants": [
+        "lotus", "water lily", "hydrangea", "morning glory",
+        "sunflower", "iris", "peony", "rose", "lily",
+        "green leaves", "dense foliage", "summer grasses", "ripening grain"
+      ]
+    },
+
+    "autumn": {
+      "heavens": [
+        "autumn sky", "autumn moon", "harvest moon", "autumn stars",
+        "autumn clouds", "autumn rain", "typhoon", "autumn wind",
+        "cool breeze", "clear sky", "autumn dusk", "long nights",
+        "autumn mist", "frost forming", "autumn thunder", "migrating birds"
+      ],
+      "earth": [
+        "autumn mountains", "autumn fields", "autumn river", "autumn sea",
+        "colored leaves", "falling leaves", "withering grass", "autumn garden",
+        "harvest fields", "golden rice", "autumn landscape", "mountain trails"
+      ],
+      "humanity": [
+        "autumn clothes", "harvesting", "threshing rice", "drying persimmons",
+        "moon viewing", "autumn festival", "scarecrow", "reading by lamplight",
+        "autumn loneliness", "melancholy", "reminiscence", "preparing for winter"
+      ],
+      "observances": [
+        "moon viewing", "chrysanthemum festival", "autumn equinox",
+        "ancestor memorial", "harvest festival", "autumn offerings"
+      ],
+      "animals": [
+        "crickets", "grasshoppers", "dragonflies", "migrating geese",
+        "deer", "wild boar", "salmon", "autumn insects",
+        "chirping insects", "mantis", "spider webs", "moths"
+      ],
+      "plants": [
+        "chrysanthemums", "cosmos", "bush clover", "pampas grass",
+        "asters", "gentian", "autumn leaves", "red maple",
+        "ginkgo leaves", "persimmons", "chestnuts", "rice stalks"
+      ]
+    },
+
+    "winter": {
+      "heavens": [
+        "winter sky", "winter moon", "winter stars", "winter clouds",
+        "winter rain", "sleet", "snow", "first snow", "deep snow",
+        "blizzard", "ice", "icicles", "frost", "cold wind",
+        "winter storm", "shortest day", "long nights", "winter solstice"
+      ],
+      "earth": [
+        "frozen earth", "frozen pond", "icy river", "winter mountain",
+        "snow-covered peaks", "bare trees", "withered fields", "winter garden",
+        "ice formations", "snow drifts", "frozen waterfall", "winter landscape"
+      ],
+      "humanity": [
+        "winter clothes", "thick kimono", "hearth fire", "charcoal brazier",
+        "hot sake", "winter solitude", "staying indoors", "reading",
+        "New Year preparations", "year-end cleaning", "making mochi",
+        "winter meditation", "hot bath", "winter illness", "frostbite"
+      ],
+      "observances": [
+        "winter solstice", "year-end", "New Year's Eve", "temple bells",
+        "year forgetting party", "winter retreat", "winter offerings"
+      ],
+      "animals": [
+        "hibernating bears", "winter birds", "crows", "sparrows",
+        "wild geese", "winter fox", "winter fish", "oysters",
+        "winter insects sleeping", "migrating whales", "seals", "winter cat"
+      ],
+      "plants": [
+        "bare branches", "withered grass", "winter trees", "pine",
+        "bamboo", "plum buds", "camellias", "winter berries",
+        "dried leaves", "evergreens", "winter vegetables", "winter mushrooms"
+      ]
+    },
+
+    "new_year": {
+      "observances": [
+        "New Year's Day", "first sunrise", "first dream", "first shrine visit",
+        "New Year decorations", "pine decorations", "sacred rope", "rice cakes",
+        "New Year's feast", "first calligraphy", "first tea", "New Year cards"
+      ],
+      "activities": [
+        "first laughter", "first bath", "first work", "first sale",
+        "kite flying", "top spinning", "shuttlecock", "card games",
+        "New Year's poetry", "family gathering", "giving gifts", "visiting relatives"
+      ]
+    }
+  },
+
+  "contemporary_themes": {
+    "urban_life": [
+      "subway platforms", "traffic lights", "skyscrapers", "neon signs",
+      "coffee shops", "street vendors", "taxi cabs", "bus stops",
+      "apartment windows", "fire escapes", "alleyways", "parking lots",
+      "shopping malls", "construction sites", "graffiti walls", "billboards",
+      "crosswalks", "subway tunnels", "rooftop gardens", "city parks",
+      "street musicians", "food trucks", "homeless shelters", "late-night diners",
+      "office buildings", "elevator rides", "glass facades", "concrete jungles",
+      "rush hour", "empty streets", "dawn commute", "city pigeons",
+      "street lamps", "shadows on pavement", "puddle reflections", "exhaust fumes"
+    ],
+
+    "technology": [
+      "smartphone screens", "typing keyboards", "computer glow", "loading circles",
+      "notification pings", "video calls", "social media feeds", "email inbox",
+      "wifi signals", "charging cables", "headphone wires", "screen reflections",
+      "deleted messages", "digital photos", "GPS navigation", "streaming shows",
+      "online shopping", "delivery drones", "self-driving cars", "robot assistants",
+      "virtual reality", "artificial intelligence", "blockchain", "3D printing",
+      "smart homes", "voice assistants", "fitness trackers", "solar panels",
+      "wind turbines", "electric cars", "recycling bins", "QR codes",
+      "touchscreens", "facial recognition", "password prompts", "cloud storage"
+    ],
+
+    "environmental_concerns": [
+      "melting glaciers", "rising seas", "plastic waste", "oil spills",
+      "deforestation", "extinct species", "air pollution", "smog",
+      "acid rain", "drought", "wildfires", "floods",
+      "coral bleaching", "overfishing", "toxic waste", "landfills",
+      "weather patterns", "changing seasons", "heat waves", "polar bears",
+      "dying bees", "silent spring", "toxic rivers", "dead zones",
+      "microplastics", "e-waste", "light pollution", "noise pollution",
+      "habitat loss", "invasive species", "soil erosion", "desertification"
+    ],
+
+    "social_political": [
+      "voting booths", "campaign signs", "ballot boxes", "election day",
+      "border crossings", "immigration offices", "homeless shelters", "food banks",
+      "unemployment lines", "foreclosure signs", "housing markets", "economic shifts",
+      "surveillance cameras", "police presence", "prison walls", "courtrooms",
+      "public forums", "town squares", "civic duty", "public service",
+      "neighborhood watch", "local government", "city councils", "public hearings",
+      "town halls", "community centers", "public libraries", "civic spaces",
+      "pandemic masks", "social distancing", "vaccine lines", "lockdown",
+      "remote work", "essential workers", "supply chains", "inflation",
+      "protest marches", "activism", "rallies", "demonstrations",
+      "military parades", "veterans day", "flag raising", "memorial day",
+      "church gatherings", "religious freedom", "faith communities", "prayer vigils",
+      "tax season", "small businesses", "family farms", "entrepreneurs",
+      "property rights", "land ownership", "private property", "homesteading",
+      "gun ranges", "hunting licenses", "fishing permits", "outdoor sports",
+      "border security", "military bases", "naval yards", "armed forces",
+      "national anthem", "patriotic songs", "national monuments", "war memorials",
+      "town meetings", "grassroots movements", "petition drives", "recall elections",
+      "free speech", "open debate", "public assembly", "civic engagement"
+    ],
+
+    "personal_emotions": [
+      "loneliness", "anxiety", "depression", "joy",
+      "grief", "healing", "nostalgia", "regret",
+      "hope", "despair", "anger", "peace",
+      "love", "heartbreak", "longing", "contentment",
+      "frustration", "relief", "shame", "pride",
+      "jealousy", "compassion", "empathy", "indifference",
+      "excitement", "boredom", "confusion", "clarity",
+      "vulnerability", "strength", "fear", "courage"
+    ],
+
+    "relationships": [
+      "first dates", "last goodbyes", "wedding vows", "divorce papers",
+      "parent and child", "sibling rivalry", "family dinners", "empty nest",
+      "friendship", "betrayal", "reconciliation", "forgiveness",
+      "long distance", "reunions", "estrangement", "intimacy",
+      "loneliness in crowds", "connection", "miscommunication", "understanding",
+      "caregiving", "aging parents", "new babies", "teenagers",
+      "chosen family", "found community", "belonging", "isolation"
+    ],
+
+    "cross_cultural": [
+      "immigration", "diaspora", "dual identity", "code switching",
+      "translation", "accent", "cultural fusion", "tradition",
+      "assimilation", "heritage", "roots", "homeland",
+      "third culture", "global citizenship", "cultural appropriation", "cultural exchange",
+      "language barriers", "multilingual", "cultural misunderstanding", "cultural bridge",
+      "ethnic food", "traditional dress", "folk music", "cultural festivals",
+      "generational differences", "old country", "new world", "cultural preservation"
+    ],
+
+    "pandemic_era": [
+      "face masks", "hand sanitizer", "six feet apart", "plexiglass barriers",
+      "zoom fatigue", "remote learning", "essential workers", "hospital overwhelm",
+      "vaccine rollout", "quarantine", "isolation", "lockdown",
+      "empty streets", "closed businesses", "online everything", "delivery boxes",
+      "sourdough bread", "toilet paper shortage", "frontline heroes", "ICU beds",
+      "contact tracing", "testing sites", "variants", "breakthrough cases",
+      "new normal", "hybrid work", "mask mandates", "vaccine passports"
+    ],
+
+    "domestic_life": [
+      "morning coffee", "unmade beds", "laundry piles", "dishes stacked",
+      "plants wilting", "dust motes", "creaking floors", "leaky faucets",
+      "cooking smells", "burnt toast", "grocery lists", "meal prep",
+      "cleaning routines", "cluttered spaces", "cozy corners", "home repairs",
+      "window views", "doorway shadows", "hallway echoes", "room transitions",
+      "family photos", "heirlooms", "moving boxes", "settling in",
+      "neighbors", "shared walls", "backyard", "front porch"
+    ],
+
+    "work_career": [
+      "deadlines", "meetings", "presentations", "performance reviews",
+      "job interviews", "first day", "last day", "retirement",
+      "cubicles", "break rooms", "water coolers", "office politics",
+      "hustle culture", "burnout", "work-life balance", "side hustles",
+      "gig economy", "freelancing", "entrepreneurship", "startups",
+      "unemployment", "job search", "resume updates", "networking",
+      "promotions", "demotions", "layoffs", "workplace harassment"
+    ],
+
+    "mental_health": [
+      "therapy sessions", "medication", "self-care", "boundaries",
+      "triggers", "trauma", "healing journey", "mental health days",
+      "support groups", "crisis hotlines", "psychiatric wards", "recovery",
+      "stigma", "invisibility", "validation", "acceptance",
+      "mindfulness", "meditation", "grounding techniques", "coping mechanisms",
+      "mental illness", "neurodivergence", "disability", "accommodation",
+      "suicide prevention", "substance abuse", "addiction recovery", "sobriety"
+    ],
+
+    "food_culture": [
+      "street food", "farmer's markets", "organic produce", "grocery stores",
+      "meal kits", "food delivery", "restaurant kitchens", "food waste",
+      "comfort food", "cultural cuisine", "fusion cooking", "molecular gastronomy",
+      "slow food", "fast food", "food photography", "food blogging",
+      "dietary restrictions", "food allergies", "veganism", "sustainability",
+      "home cooking", "soup kitchens", "backyard gardens", "window herbs",
+      "food memories", "family recipes", "cooking together", "breaking bread",
+      "community gardens", "urban farming", "rooftop gardens", "vertical farming"
+    ],
+
+    "aging_mortality": [
+      "grey hair", "wrinkles", "aching joints", "fading memory",
+      "reading glasses", "hearing aids", "walking sticks", "wheelchairs",
+      "nursing homes", "assisted living", "hospice care", "final days",
+      "obituaries", "funerals", "cremation", "burial",
+      "inheritance", "estate planning", "wills", "legacy",
+      "widowhood", "grief support", "memorial services", "remembrance",
+      "life review", "regrets", "wisdom", "acceptance",
+      "generations", "ancestors", "descendants", "continuity"
+    ],
+
+    "childhood_youth": [
+      "playgrounds", "school buses", "recess", "homework",
+      "birthday parties", "sleepovers", "summer camp", "first crush",
+      "scraped knees", "lost teeth", "growth spurts", "training wheels",
+      "imaginary friends", "bedtime stories", "nightlights", "lullabies",
+      "teenage angst", "peer pressure", "identity crisis", "rebellion",
+      "first job", "driving lessons", "prom night", "graduation",
+      "leaving home", "college dorms", "finding yourself", "growing up"
+    ],
+
+    "travel_movement": [
+      "airports", "train stations", "highway rest stops", "border crossings",
+      "passport stamps", "luggage", "jet lag", "time zones",
+      "tourist traps", "local haunts", "getting lost", "finding way",
+      "culture shock", "homesickness", "wanderlust", "journey",
+      "road trips", "backpacking", "luxury travel", "budget travel",
+      "solo travel", "group tours", "family vacations", "business trips",
+      "arriving", "departing", "layovers", "destinations",
+      "maps", "guidebooks", "translation apps", "asking directions"
+    ],
+
+    "art_creativity": [
+      "blank canvas", "writer's block", "creative flow", "inspiration",
+      "artist's studio", "gallery walls", "museum halls", "street art",
+      "performance art", "digital art", "traditional crafts", "avant-garde",
+      "creative process", "rough drafts", "final pieces", "rejection",
+      "recognition", "obscurity", "artistic vision", "commercial art",
+      "art therapy", "self-expression", "artistic community", "solo practice",
+      "exhibitions", "opening nights", "critics", "audiences",
+      "making art", "viewing art", "living art", "being art"
+    ],
+
+    "spirituality_philosophy": [
+      "meditation", "prayer", "contemplation", "enlightenment",
+      "sacred spaces", "temples", "churches", "mosques",
+      "pilgrimages", "spiritual journeys", "seeking", "finding",
+      "doubt", "faith", "belief", "skepticism",
+      "meaning", "purpose", "existence", "void",
+      "transcendence", "immanence", "mysticism", "rationalism",
+      "ethical dilemmas", "moral choices", "values", "principles",
+      "philosophical questions", "existential crisis", "cosmic perspective", "inner peace"
+    ],
+
+    "sports_athletics": [
+      "training regimens", "competition", "victory", "defeat",
+      "team spirit", "individual achievement", "personal bests", "records broken",
+      "injuries", "recovery", "comeback", "retirement",
+      "sports arenas", "locker rooms", "practice fields", "finish lines",
+      "fans cheering", "empty stadiums", "watching alone", "shared experience",
+      "amateur sports", "professional athletes", "Olympics", "local leagues",
+      "sportsmanship", "rivalry", "coaching", "mentoring",
+      "physical limits", "mental game", "flow state", "pressure"
+    ],
+
+    "education_learning": [
+      "classrooms", "lectures", "seminars", "online courses",
+      "libraries", "study groups", "all-nighters", "exams",
+      "report cards", "diplomas", "scholarships", "student loans",
+      "teachers", "mentors", "students", "lifelong learners",
+      "curiosity", "understanding", "confusion", "eureka moments",
+      "rote learning", "critical thinking", "creativity", "standardized tests",
+      "educational inequality", "access to knowledge", "self-taught", "formal education",
+      "school systems", "alternative education", "learning disabilities", "gifted programs"
+    ],
+
+    "science_discovery": [
+      "laboratories", "field research", "experiments", "observations",
+      "microscopes", "telescopes", "data collection", "analysis",
+      "hypotheses", "theories", "discoveries", "breakthroughs",
+      "scientific method", "peer review", "reproducibility", "skepticism",
+      "space exploration", "deep sea", "quantum realm", "molecular level",
+      "climate science", "medical research", "technological innovation", "basic research",
+      "scientific community", "lone researchers", "collaboration", "competition",
+      "science communication", "public understanding", "misinformation", "evidence"
+    ]
+  },
+
+  "universal_themes": {
+    "nature_phenomena": [
+      "water in motion", "stillness", "reflection", "shadow and light",
+      "growth and decay", "cycles", "transformation", "permanence",
+      "emptiness", "fullness", "balance", "chaos",
+      "macro and micro", "patterns", "fractals", "symmetry",
+      "elements meeting", "boundaries", "thresholds", "edges"
+    ],
+
+    "time_temporality": [
+      "present moment", "fleeting", "eternal", "waiting",
+      "passing", "arriving", "beginning", "ending",
+      "dawn", "noon", "dusk", "midnight",
+      "yesterday", "today", "tomorrow", "never",
+      "memory", "anticipation", "now", "duration",
+      "rushing", "lingering", "suspended", "flowing"
+    ],
+
+    "human_condition": [
+      "birth", "death", "suffering", "joy",
+      "desire", "aversion", "ignorance", "wisdom",
+      "connection", "separation", "belonging", "alienation",
+      "consciousness", "unconsciousness", "awareness", "delusion",
+      "being", "becoming", "ceasing", "continuing",
+      "self", "other", "identity", "emptiness"
+    ],
+
+    "sensory_experience": [
+      "silence", "noise", "music", "cacophony",
+      "scent", "stench", "fragrance", "aroma",
+      "taste", "flavor", "bitterness", "sweetness",
+      "texture", "smooth", "rough", "soft",
+      "temperature", "heat", "cold", "warmth",
+      "color", "light", "darkness", "shade",
+      "movement", "stillness", "vibration", "resonance"
+    ]
+  },
+
+  "thematic_categories": [
+    "Traditional Seasonal (Kigo)",
+    "Urban & Contemporary Life",
+    "Technology & Digital Age",
+    "Environmental & Ecological",
+    "Social & Political",
+    "Personal & Emotional",
+    "Relationships & Community",
+    "Cross-Cultural & Identity",
+    "Pandemic & Health",
+    "Domestic & Daily Life",
+    "Work & Career",
+    "Mental Health & Wellness",
+    "Food & Culture",
+    "Aging & Mortality",
+    "Childhood & Youth",
+    "Travel & Movement",
+    "Art & Creativity",
+    "Spirituality & Philosophy",
+    "Sports & Athletics",
+    "Education & Learning",
+    "Science & Discovery",
+    "Universal Themes",
+    "Sensory Experience"
+  ],
+
+  "usage_notes": {
+    "how_to_use": "Select themes from any category to create focused or diverse haiku collections",
+    "mixing_themes": "Combine traditional and contemporary themes for innovative haiku",
+    "seasonal_awareness": "Traditional kigo provide rich cultural context and seasonal grounding",
+    "contemporary_relevance": "Modern themes address current human experiences and concerns",
+    "universal_connection": "Universal themes bridge traditional and contemporary approaches"
+  }
+}

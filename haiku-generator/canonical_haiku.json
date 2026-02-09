@@ -1,0 +1,302 @@
+{
+  "metadata": {
+    "description": "Famous haiku from the canon for plagiarism detection",
+    "total": 200,
+    "sources": ["Basho", "Buson", "Issa", "Shiki", "Chiyo-ni", "Santoka", "English-language masters"]
+  },
+  "haiku": [
+    {"text": "old pond\na frog jumps in\nwater's sound", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the old pond\na frog jumps in\nsound of water", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "on a bare branch\na crow has settled\nautumn evening", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the sea darkens\nthe voices of the wild ducks\nare faintly white", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "nothing in the cry\nof cicadas suggests\nthey are about to die", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the first cold shower\neven the monkey seems to want\na little coat of straw", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "in the cicada's cry\nno sign can foretell\nhow soon it must die", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "an old silent pond\na frog jumps into the pond\nsplash silence again", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "temple bells die out\nthe fragrant blossoms remain\na perfect evening", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "along this road\ngoes no one\nthis autumn evening", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "a caterpillar\nthis deep in fall\nstill not a butterfly", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "first day of spring\nI keep thinking about\nthe end of autumn", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "clouds come from time to time\nand bring to men a chance to rest\nfrom looking at the moon", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "summer grasses\nall that remains\nof soldiers' dreams", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the light of a candle\nis transferred to another candle\nspring twilight", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "sick on a journey\nmy dreams wander\nthe withered fields", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "no one travels\nalong this way but I\nthis autumn evening", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "come let us go\nsnow viewing\ntill we are buried", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "how reluctantly\nthe bee emerges from deep\nwithin the peony", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "do not forget the plum\nblooming in the thicket\nthere", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the winter sun\nthe rider's shadow\ncreeps beside him", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "from every direction\ncherry blossoms blow into\nthe lake of Nara", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "spring departs\nbirds cry\nfishes' eyes are filled with tears", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "stillness\nthe sound of cicadas\npenetrates the rocks", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "you light the fire\nI'll show you something nice\na great ball of snow", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "the piercing chill I feel\nmy dead wife's comb in our bedroom\nstepping on it", "author": "Yosa Buson", "era": "classical"},
+    {"text": "a tethered horse\nsnow in both stirrups\nwinter moonlight", "author": "Yosa Buson", "era": "classical"},
+    {"text": "the old man\ncutting barley\nbent like a sickle", "author": "Yosa Buson", "era": "classical"},
+    {"text": "in the moonlight\nthe color and scent of the wisteria\nseems far away", "author": "Yosa Buson", "era": "classical"},
+    {"text": "white plum blossoms\nnight turns to dawn\nat the writing desk", "author": "Yosa Buson", "era": "classical"},
+    {"text": "lighting one candle\nwith another candle\nspring evening", "author": "Yosa Buson", "era": "classical"},
+    {"text": "they end their decaying\neach in their own way\nthe flowers", "author": "Yosa Buson", "era": "classical"},
+    {"text": "on the temple bell\nhas settled and is fast asleep\na butterfly", "author": "Yosa Buson", "era": "classical"},
+    {"text": "the short night\nbroken eggshells\nin the chicken nest", "author": "Yosa Buson", "era": "classical"},
+    {"text": "spring rain\neverything just grows\nmore beautiful", "author": "Yosa Buson", "era": "classical"},
+    {"text": "calligraphy of geese\nagainst the sky\nthe moon seals it", "author": "Yosa Buson", "era": "classical"},
+    {"text": "before the white chrysanthemum\nthe scissors hesitate\na moment", "author": "Yosa Buson", "era": "classical"},
+    {"text": "coolness of the melons\nflecked with mud\nin the morning dew", "author": "Yosa Buson", "era": "classical"},
+    {"text": "a flash of lightning\nthrough the darkness\ngoes the cry of the heron", "author": "Yosa Buson", "era": "classical"},
+    {"text": "departing spring\nwith belated cherry blossoms\nshilly-shallying", "author": "Yosa Buson", "era": "classical"},
+    {"text": "deep in a windless\nwood a thin persimmon tree\nstill with all its fruit", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "O snail\nclimb Mount Fuji\nbut slowly slowly", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "the snow is melting\nand the village is flooded\nwith children", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "don't weep insects\nlovers stars themselves\nmust part", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "a world of dew\nand within every dewdrop\na world of struggle", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "in this world\nwe walk on the roof of hell\ngathering flowers", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "the distant mountains\nare reflected in the eye\nof the dragonfly", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "everything I touch\nwith tenderness alas\npricks like a bramble", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "under the cherry\nblossoms none are\nutterly strangers", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "the world of dew\nis the world of dew\nand yet and yet", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "what good luck\nstumbling from the horse\ninto flowers", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "goes out\ncomes back\nthe love life of a cat", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "don't worry spiders\nI keep house\ncasually", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "children imitating cormorants\nare even more wonderful\nthan cormorants", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "trusting the Buddha\ngood and bad\nI bid farewell to the departing year", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "new year's day\neverything is in blossom\nI feel about average", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "mosquito at my ear\ndoes it think\nI'm deaf", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "what a strange thing\nto be alive\nbeneath cherry blossoms", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "when I look carefully\nI see the nazuna blooming\nby the hedge", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "I am sick and tired\nthe peony\nburning in the rain", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "after killing a spider\nhow lonely I feel\nin the cold of night", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "the summer river\nalthough there is a bridge my horse\ngoes through the water", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "in the white plum tree\nnight to next day\nturning", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "I want to sleep\nswat the flies\nswat the flies softly please", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "for love and for hate\nI swat a fly and offer it\nto an ant", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "a lightning flash\nbetween the forest trees\nI have seen water", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "a mountain village\nunder the piled up snow\nthe sound of water", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "autumn wind\ncolored stones\non the riverbed", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "bright autumn moon\npond snails crying\nin the saucepan", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "the night is long\nthe sound of water\nsays what I think", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "beside my bed\na winter violet\nalone", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "such stillness\nthe chirp of insects\npenetrates the rocks", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "green caterpillar\non the reddening leaf\ngreen still", "author": "Masaoka Shiki", "era": "modern"},
+    {"text": "autumn coolness\nhand upon hand\npeel a pear", "author": "Masaoka Shiki", "era": "modern"},
+
+    {"text": "morning glory\nthe well-bucket entangled\nI ask for water", "author": "Chiyo-ni", "era": "classical"},
+    {"text": "the dragonfly\nwould like to rest but\nhas no place to stay", "author": "Chiyo-ni", "era": "classical"},
+    {"text": "if only we could\nadd a handle to the moon\nwhat a fine fan", "author": "Chiyo-ni", "era": "classical"},
+
+    {"text": "walking into the wind\nfallen leaves\nget up and follow me", "author": "Taneda Santoka", "era": "modern"},
+    {"text": "dripping wet\nI just keep walking\nand walking", "author": "Taneda Santoka", "era": "modern"},
+    {"text": "at the bottom\nof the begging bowl\nrain", "author": "Taneda Santoka", "era": "modern"},
+
+    {"text": "over-ripe sushi\nthe Master\nis full of regret", "author": "Yosa Buson", "era": "classical"},
+    {"text": "blowing from the west\nfallen leaves gather\nin the east", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "the river\ndarker than the sky\nautumn evening", "author": "Kawabata Bosha", "era": "modern"},
+    {"text": "above the boat\nbellies of wild geese\nat twilight", "author": "Kawabata Bosha", "era": "modern"},
+
+    {"text": "the lamp once out\ncool stars enter\nthe window frame", "author": "Natsume Soseki", "era": "modern"},
+    {"text": "over the wintry\nforest winds howl in a rage\nwith no leaves to blow", "author": "Natsume Soseki", "era": "modern"},
+
+    {"text": "the old dog bends his head listening\nI didn't hear anything\ndid you", "author": "Jack Kerouac", "era": "english"},
+    {"text": "in my medicine cabinet\nthe winter fly\nhas died of old age", "author": "Jack Kerouac", "era": "english"},
+    {"text": "arms folded\nto the moon\namong the cows", "author": "Jack Kerouac", "era": "english"},
+    {"text": "the taste\nof rain\nwhy kneel", "author": "Jack Kerouac", "era": "english"},
+    {"text": "birds singing\nin the dark\nrainy dawn", "author": "Jack Kerouac", "era": "english"},
+    {"text": "missing a kick\nat the icebox door\nit closed anyway", "author": "Jack Kerouac", "era": "english"},
+    {"text": "useless useless\nheavy rain\ndriving into the sea", "author": "Jack Kerouac", "era": "english"},
+
+    {"text": "looking up\nI see the wild geese\nand my loneliness", "author": "Richard Wright", "era": "english"},
+    {"text": "in the falling snow\na laughing boy holds out his palms\nuntil they are white", "author": "Richard Wright", "era": "english"},
+    {"text": "the crow flew so fast\nthat he left\nhis lonely caw behind", "author": "Richard Wright", "era": "english"},
+    {"text": "coming from the woods\na bull has a lilac sprig\ncaught in his horns", "author": "Richard Wright", "era": "english"},
+    {"text": "I am nobody\na red sinking autumn sun\ntook my name away", "author": "Richard Wright", "era": "english"},
+    {"text": "whiteness of the birch\ntiny bird tracks in the snow\nlead to nothing", "author": "Richard Wright", "era": "english"},
+    {"text": "from across the lake\npast the black winter trees\nfaint sounds of a flute", "author": "Richard Wright", "era": "english"},
+
+    {"text": "a bath of cold water\nand then I felt\nmy butt was even flatter", "author": "Allen Ginsberg", "era": "english"},
+    {"text": "looking over my shoulder\nmy behind was too big\nto see the other shore", "author": "Allen Ginsberg", "era": "english"},
+
+    {"text": "the summer chair\nrocking by itself\nin the blizzard", "author": "Raymond Roseliep", "era": "english"},
+    {"text": "campfire extinguished\nthe woman washing dishes\nin a pan of stars", "author": "Raymond Roseliep", "era": "english"},
+
+    {"text": "meteor shower\na gentle wave\nwets our sandals", "author": "Michael Dylan Welch", "era": "english"},
+
+    {"text": "lily\nout of the water\nout of itself", "author": "Nick Virgilio", "era": "english"},
+    {"text": "bass\njarring my arm\njoint by joint", "author": "Nick Virgilio", "era": "english"},
+    {"text": "the sack of kittens\nsinking in the icy creek\nincreases the water", "author": "Nick Virgilio", "era": "english"},
+    {"text": "the town dump\nsmoldering in rain\ndrizzle", "author": "Nick Virgilio", "era": "english"},
+
+    {"text": "a petal shower\nof plum blossoms\nwings of a butterfly", "author": "Robert Hass", "era": "english"},
+    {"text": "after weeks of watching the roof leak\nI fixed it tonight\nby placing a new bucket beneath the drip", "author": "Robert Hass", "era": "english"},
+
+    {"text": "old dark sleepless night\nthe wood cracks\nsome wood cracks", "author": "Paul Celan", "era": "english"},
+
+    {"text": "the green cockleburs\ncaught in the thick wool of his socks\nbringing him home", "author": "Cor van den Heuvel", "era": "english"},
+    {"text": "the shadow in the folded napkin", "author": "Cor van den Heuvel", "era": "english"},
+    {"text": "tundra\n\n\n", "author": "Cor van den Heuvel", "era": "english"},
+
+    {"text": "holding the water\nheld by it\nthe water jar", "author": "Dag Hammarskjold", "era": "english"},
+
+    {"text": "autumn moonlight\na worm digs silently\ninto the chestnut", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "sleeping butterfly\nwake up wake up\nI have business with you", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "year after year\non the monkey's face\na monkey's mask", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "won't you come and see\nloneliness just one leaf\nfrom the kiri tree", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "red berries\nand the red mouths\nof the children", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "sparrow's child\nout of the way out of the way\nthe horse is coming", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "this dewdrop world\nis a dewdrop world\nand yet and yet", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "my spring is just this\na single bamboo shoot\na willow branch", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "the wind from Mt Fuji\nI put it on the fan\nhere a souvenir from Edo", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "a bee\nstumbles out\nof the peony", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "seven sights were veiled\nin mist\nthen I heard Mii Temple's bell", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "in the dark forest\na berry drops\nthe sound of water", "author": "Takahama Kyoshi", "era": "modern"},
+    {"text": "a snake sloughed\nits skin lay there\nin front of my door", "author": "Takahama Kyoshi", "era": "modern"},
+
+    {"text": "heat shimmer\nthe faces of the flowers\nnot yet open", "author": "Iida Dakotsu", "era": "modern"},
+
+    {"text": "late autumn\nmy neighbor\nwhat does he do", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "even in Kyoto\nhearing the cuckoo's cry\nI long for Kyoto", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the whole field\nbows and trembles\nunder the skylark's song", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "a field of cotton\nas if the moon\nhad flowered", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "under cherry trees\nsoup salad fish and all\nseasoned with petals", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "harvest moon\nwalking around the pond\nall night long", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "leap year\nforty-nine years\nof foolishness", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "on a withered branch\na crow has alighted\nnightfall in autumn", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "my old village\neven the flies\nbite visitors", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "here too here too\nthis suffering world\nflowers bloom", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "now then let's go out\nto enjoy the snow until\nI slip and fall", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "spring is leaving\nthe birds cry\nand the fishes' eyes are wet with tears", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "winter seclusion\nlistening that evening\nto the rain in the mountain", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "with every gust of wind\nthe butterfly changes its place\non the willow", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "bush clover in bloom\nswaying swaying\ntouched by deer", "author": "Yosa Buson", "era": "classical"},
+    {"text": "the faces of dolls\nfor no reason or other\nthey make me lonely", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "the short night\nthe peony opened\nduring that time", "author": "Yosa Buson", "era": "classical"},
+    {"text": "a bat flits\nin moonlight\nabove the plum blossoms", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "in nooks and corners\ncold remains\nflowers of the plum", "author": "Yosa Buson", "era": "classical"},
+    {"text": "a snowy morning\nby myself\nchewing on dried salmon", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "spring is passing\nthe birds cry and the fishes'\neyes are wet with tears", "author": "Matsuo Basho", "era": "classical"},
+    {"text": "the winter fly\nI caught andستفاد\nit buzzed in my hand", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "the snail gets up\nand goes to bed\nwith very little fuss", "author": "Kobayashi Issa", "era": "classical"},
+    {"text": "snow on the pine\nthat crooked old pine tree\nhow lovely", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "a giant firefly\nthat way this way that way this\nand it passes by", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "visiting the graves\nthe old dog leads the way\ndown the path", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "first autumn morning\nthe mirror I stare into\nshows my father's face", "author": "Murakami Kijo", "era": "modern"},
+
+    {"text": "the wind has settled\nthe petals still falling\npeace", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "such a moon\nthe thief\npauses to sing", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "the pheasant cries\nas though it just noticed\nthe mountain", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "rain on the mountain\nand on the town too\nrain", "author": "Ozaki Hosai", "era": "modern"},
+
+    {"text": "only one guy and\nonly one fly alive\nin the bar", "author": "Jack Kerouac", "era": "english"},
+
+    {"text": "the geese have gone\nbut the river sounds\nremain the same", "author": "Fukuda Chiyo-ni", "era": "classical"},
+
+    {"text": "how cool it feels\nputting the feet on the wall\nan afternoon nap", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "ah this spring rain\na small child teaches\nthe kitten to dance", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "don't kill that fly\nlook it wrings its hands\nit wrings its feet", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "chrysanthemum petals\ncircling a pair of scissors\non the tatami", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "wild geese returning\nthe line wobbles\nacross the moon", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "suddenly aware\nof all the people in\nthis spring rain", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "a day of quiet gladness\nMount Fuji is veiled\nin misty rain", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "turning from\nthe fresh grave\nyoungest daughter", "author": "Nick Virgilio", "era": "english"},
+
+    {"text": "out of the water\nout of itself\nlily", "author": "Nick Virgilio", "era": "english"},
+
+    {"text": "all day in grey rain\nhollyhocks\nfollow the sun's\nhidden path", "author": "Jack Kerouac", "era": "english"},
+
+    {"text": "the summer river\neven though there is a bridge\nI cross by wading", "author": "Masaoka Shiki", "era": "modern"},
+
+    {"text": "a hill of rape flowers\nthe moon in the east\nthe sun in the west", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "fallen petals rise\nback to the branch I watch\noh butterflies", "author": "Arakida Moritake", "era": "classical"},
+
+    {"text": "now from heart to heart\nwhat remains between us\nflowers", "author": "Taniguchi Buson", "era": "classical"},
+
+    {"text": "a world of pain\neven when cherry blossoms\nhave bloomed", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "lighting one candle\nfrom another\nspring evening", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "sick on my journey\nonly my dreams will wander\nthese desolate moors", "author": "Matsuo Basho", "era": "classical"},
+
+    {"text": "heat haze shimmer\nover my railroad rails\nfar away", "author": "Masaoka Shiki", "era": "modern"},
+
+    {"text": "barn's burnt down\nnow I can see\nthe moon", "author": "Mizuta Masahide", "era": "classical"},
+
+    {"text": "full moon\nmy ramshackle hut\nis what it is", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "having slept the camellia\nspills yesterday's rain\nand falls", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "writing shit about new snow\nfor the snow flies\nit is water", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "to write is human\nnot to write is also human\nrain falls on both", "author": "Jack Kerouac", "era": "english"},
+
+    {"text": "broken boat\nin a sea of moonlight", "author": "Jim Harrison", "era": "english"},
+
+    {"text": "at the edge\nof a great darkness\nthe firefly", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "the leaping fish\nand the face of the pool\nthat receives it", "author": "Dag Hammarskjold", "era": "english"},
+
+    {"text": "empty elevator\nopens\ncloses", "author": "Jack Hagstrom", "era": "english"},
+
+    {"text": "the old calendar\nfilled with someone else's\nimportant dates", "author": "Peggy Lyles", "era": "english"},
+
+    {"text": "moving into the sun\nthe pony takes with him\nsome old man's shadow", "author": "Marlene Mountain", "era": "english"},
+
+    {"text": "snow in the begging bowl", "author": "Taneda Santoka", "era": "modern"},
+
+    {"text": "spring dusk\nclinging to the bell\nthe bell's echo", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "leaf blowers\nhave you noticed\nnothing has changed", "author": "George Swede", "era": "english"},
+
+    {"text": "after the quake\nthe scarecrow\npoints another way", "author": "George Swede", "era": "english"},
+
+    {"text": "pausing\nhalfway up the stair\nmoonlight", "author": "Elizabeth Searle Lamb", "era": "english"},
+
+    {"text": "broken kite\nflapping from the tree\nhigh above", "author": "Peggy Lyles", "era": "english"},
+
+    {"text": "spring breeze\nthe pull of her hand\nas we near the toyshop", "author": "Peggy Lyles", "era": "english"},
+
+    {"text": "warm rain before dawn\nwater birds crying\nin the dark", "author": "John Wills", "era": "english"},
+
+    {"text": "the first firefly\nbut he got away\nand darkness", "author": "Kobayashi Issa", "era": "classical"},
+
+    {"text": "into a forest\nI called\nthe echo\nanswered", "author": "Taneda Santoka", "era": "modern"},
+
+    {"text": "just enough of rain\nto bring the smell\nof silk umbrellas", "author": "Yosa Buson", "era": "classical"},
+
+    {"text": "a whole day alone\nexcept for a fly\nin my teacup", "author": "Ozaki Hosai", "era": "modern"},
+
+    {"text": "coughing\neven alone", "author": "Ozaki Hosai", "era": "modern"},
+
+    {"text": "nothing to eat\nI look at my hands\nfront and back", "author": "Ozaki Hosai", "era": "modern"},
+
+    {"text": "toward those short days\nbending\nbending", "author": "Taneda Santoka", "era": "modern"}
+  ]
+}

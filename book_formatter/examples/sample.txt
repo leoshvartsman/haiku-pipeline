@@ -1,0 +1,13 @@
+MY SAMPLE BOOK
+
+CHAPTER 1
+
+This is the first chapter. It has some text.
+
+It should be turned into paragraphs in the final book.
+
+CHAPTER 2
+
+This is the second chapter. It demonstrates splitting.
+
+Another paragraph here.

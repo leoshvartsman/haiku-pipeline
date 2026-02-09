@@ -1,0 +1,142 @@
+% Award-Winning Poetry/Haiku LaTeX Template (BasicTeX Compatible)
+\documentclass[$if(fontsize)$$fontsize$$else$12pt$endif$]{book}
+
+% ===== PACKAGES (BasicTeX only) =====
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% ===== GEOMETRY & SPACING - Wider margins, centered content =====
+\geometry{
+  $if(papersize)$papersize=$papersize$$else$letterpaper$endif$,
+  top=1.5in,
+  bottom=1.5in,
+  left=2.5in,
+  right=2.5in
+}
+\setstretch{2.0}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{2.5em}
+
+% ===== PREVENT HAIKU SPLITTING ACROSS PAGES =====
+% Use moderate penalties - high enough to prevent splits, low enough to allow page flow
+\widowpenalty=9999
+\clubpenalty=9999
+\interlinepenalty=9999
+\raggedbottom
+
+% ===== TYPOGRAPHY =====
+\setmainfont{Palatino}
+\setsansfont{Avenir Next}
+
+% ===== COLORS =====
+\definecolor{titlecolor}{RGB}{20,20,20}
+\definecolor{accentcolor}{RGB}{100,100,100}
+
+% ===== HYPERREF SETUP =====
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+  $if(title)$pdftitle={$title$},$endif$
+  $if(author)$pdfauthor={$author$},$endif$
+}
+
+% ===== REMOVE CHAPTER HEADERS/NUMBERS =====
+\makeatletter
+\renewcommand\chapter{\clearpage\thispagestyle{plain}}
+\def\@makechapterhead#1{}
+\def\@makeschapterhead#1{}
+\makeatother
+
+% ===== NO HEADERS, ONLY PAGE NUMBERS IN FOOTER =====
+\pagestyle{empty}
+\makeatletter
+\def\ps@plain{%
+  \let\@oddhead\@empty
+  \let\@evenhead\@empty
+  \def\@oddfoot{\hfil\small\thepage\hfil}%
+  \def\@evenfoot{\hfil\small\thepage\hfil}}
+\makeatother
+\pagestyle{plain}
+
+% ===== CENTER ALL PARAGRAPHS =====
+\everypar{\centering}
+
+% ===== DOCUMENT START =====
+\begin{document}
+
+% ===== COVER IMAGE PAGE (if provided) =====
+$if(cover-image)$
+\thispagestyle{empty}
+\newgeometry{margin=0pt}
+\begin{center}
+  \vspace*{-1in}
+  \makebox[\textwidth]{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{$cover-image$}}
+\end{center}
+\restoregeometry
+\clearpage
+$endif$
+
+% ===== BOLD & ELEGANT TITLE PAGE (only when no cover image) =====
+$if(cover-image)$
+$else$
+$if(title)$
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{1.5cm}
+
+  % Decorative top rule
+  {\color{accentcolor}\rule{0.6\textwidth}{1.5pt}}
+
+  \vspace{3cm}
+
+  % Title - Large, Bold, Dramatic - NO HYPHENATION
+  {\sffamily\fontsize{52}{58}\selectfont\bfseries\color{titlecolor}
+    \hyphenpenalty=10000
+    \exhyphenpenalty=10000
+    \MakeUppercase{$title$}
+    \par}
+
+  \vspace{2cm}
+
+  % Decorative middle rule
+  {\color{accentcolor}\rule{0.35\textwidth}{0.8pt}}
+
+  \vspace{3.5cm}
+
+  % Author - Elegant Typography - NO HYPHENATION
+  $if(author)$
+  {\sffamily\fontsize{22}{26}\selectfont\color{accentcolor}
+    \hyphenpenalty=10000
+    \exhyphenpenalty=10000
+    $author$
+    \par}
+  $endif$
+
+  \vspace{2.5cm}
+
+  % Decorative bottom rule
+  {\color{accentcolor}\rule{0.6\textwidth}{1.5pt}}
+
+  \vfill
+
+  % Optional date/publisher
+  $if(date)$
+  {\small\sffamily\scshape\color{accentcolor}$date$}
+  $endif$
+
+  \vspace{2cm}
+\end{center}
+\clearpage
+$endif$
+$endif$
+
+% ===== MAIN CONTENT =====
+\setcounter{page}{1}
+
+$body$
+
+\end{document}

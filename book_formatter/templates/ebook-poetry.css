@@ -1,0 +1,171 @@
+/* Award-Winning Poetry/Haiku EPUB Design */
+
+/* Title Page Styling - Matches PDF Design */
+.title-page {
+  text-align: center;
+  margin: 0;
+  padding: 3em 0;
+  page-break-after: always;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title-page h1 {
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-size: 2.8em;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  margin: 1.5em 0;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+.title-page .author-name {
+  font-size: 1.4em;
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  color: #646464;
+  margin-top: 2.5em;
+  letter-spacing: 0.05em;
+}
+
+/* Decorative Rules - Matches PDF */
+.title-rule-top,
+.title-rule-middle,
+.title-rule-bottom {
+  margin: 0 auto;
+  border: none;
+  height: 1px;
+  background: #646464;
+}
+
+.title-rule-top {
+  width: 60%;
+  margin-bottom: 3em;
+  height: 1.5px;
+}
+
+.title-rule-middle {
+  width: 35%;
+  margin: 2em auto;
+  height: 0.8px;
+}
+
+.title-rule-bottom {
+  width: 60%;
+  margin-top: 2.5em;
+  height: 1.5px;
+}
+
+/* Typography & Layout Foundation - Matches PDF */
+body {
+  font-family: Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  line-height: 2.0;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 3em 2.5em;
+  color: #2a2a2a;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Chapter Headings - Removed for poetry */
+h1 {
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 200;
+  font-size: 1.4em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  text-align: center;
+  color: #333;
+  border: none;
+  hyphens: none;
+  -webkit-hyphens: none;
+}
+
+/* Remove section headings for poetry */
+h2, h3 {
+  display: none;
+}
+
+/* Paragraph Styling - Centered for haiku, matches PDF */
+p {
+  margin: 2.5em auto;
+  padding: 0 2.5em;
+  text-align: center;
+  line-height: 2.0;
+  max-width: 100%;
+  text-indent: 0;
+  hyphens: none;
+  -webkit-hyphens: none;
+  orphans: 5;
+  widows: 5;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* No drop caps for poetry */
+h1 + p::first-letter {
+  font-size: inherit;
+  line-height: inherit;
+  float: none;
+  margin: 0;
+  font-weight: inherit;
+  color: inherit;
+}
+
+/* Emphasis & Strong */
+em {
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+strong {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Horizontal Rule - Poetry separator */
+hr {
+  border: none;
+  margin: 4em auto;
+  text-align: center;
+}
+
+hr::after {
+  content: "* * *";
+  color: #999;
+  letter-spacing: 1em;
+  font-size: 1.2em;
+}
+
+/* Links */
+a {
+  color: #2a5db0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42, 93, 176, 0.3);
+}
+
+/* Page breaks */
+.page-break {
+  page-break-after: always;
+}
+
+/* Poem numbers - subtle styling */
+p:first-of-type {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  color: #666;
+  font-size: 0.9em;
+  margin-top: 3em;
+}

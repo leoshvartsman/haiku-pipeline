@@ -1,0 +1,178 @@
+/* Award-Winning EPUB Design Template */
+
+/* Typography & Layout Foundation */
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  line-height: 1.75;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 2em 1.5em;
+  color: #2a2a2a;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  max-width: 38em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Chapter Headings */
+h1 {
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  font-size: 2.2em;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-top: 2.5em;
+  margin-bottom: 1.8em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  color: #1a1a1a;
+}
+
+/* Section Headings */
+h2 {
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  letter-spacing: -0.01em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+h3 {
+  font-family: "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  color: #444;
+}
+
+/* Paragraph Styling */
+p {
+  margin: 0 0 1em 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  orphans: 3;
+  widows: 3;
+}
+
+/* First paragraph after heading - no indent */
+h1 + p,
+h2 + p,
+h3 + p {
+  text-indent: 0;
+  margin-top: 0;
+}
+
+/* Regular paragraph indent */
+p + p {
+  text-indent: 1.5em;
+  margin-top: 0;
+}
+
+/* Drop cap for first paragraph of chapters */
+h1 + p::first-letter {
+  font-size: 3.2em;
+  line-height: 0.9;
+  float: left;
+  margin: 0.05em 0.1em 0 0;
+  font-weight: 400;
+  color: #555;
+}
+
+/* Emphasis & Strong */
+em {
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+strong {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1.5em 2em;
+  padding: 0.5em 1.5em;
+  border-left: 3px solid #d0d0d0;
+  font-style: italic;
+  color: #555;
+  background: #fafafa;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1em 0 1.5em 1.5em;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 2.5em auto;
+  width: 30%;
+}
+
+/* Code & Preformatted Text */
+code {
+  font-family: "SF Mono", Consolas, Monaco, "Courier New", monospace;
+  font-size: 0.9em;
+  background: #f5f5f5;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background: #f8f8f8;
+  padding: 1em;
+  overflow-x: auto;
+  border-left: 3px solid #d0d0d0;
+  line-height: 1.4;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Links */
+a {
+  color: #2a5db0;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(42, 93, 176, 0.3);
+  transition: border-color 0.2s ease;
+}
+
+a:hover {
+  border-bottom-color: #2a5db0;
+}
+
+/* Small caps for specific elements */
+.smallcaps {
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+}
+
+/* Scene breaks */
+.scene-break {
+  text-align: center;
+  margin: 2em 0;
+  font-size: 1.5em;
+  letter-spacing: 1em;
+  color: #aaa;
+}
+
+/* Page breaks */
+.page-break {
+  page-break-after: always;
+}

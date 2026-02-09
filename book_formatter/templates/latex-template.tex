@@ -1,0 +1,156 @@
+% Award-Winning LaTeX Book Template (BasicTeX Compatible)
+\documentclass[$if(fontsize)$$fontsize$$else$12pt$endif$]{book}
+
+% ===== PACKAGES (BasicTeX compatible) =====
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% ===== GEOMETRY & SPACING =====
+\geometry{
+  $if(papersize)$papersize=$papersize$$else$letterpaper$endif$,
+  top=1.2in,
+  bottom=1.2in,
+  inner=1.3in,
+  outer=1in,
+  bindingoffset=0.2in
+}
+\setstretch{1.25}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.3em}
+
+% ===== TYPOGRAPHY =====
+\setmainfont{Palatino}
+\setsansfont{Avenir Next}
+\setmonofont{Courier New}
+
+% ===== COLORS =====
+\definecolor{chaptercolor}{RGB}{40,40,40}
+\definecolor{sectioncolor}{RGB}{60,60,60}
+\definecolor{linkcolor}{RGB}{42,93,176}
+
+% ===== HYPERREF SETUP =====
+\hypersetup{
+  colorlinks=true,
+  linkcolor=linkcolor,
+  urlcolor=linkcolor,
+  pdfborder={0 0 0},
+  $if(title)$pdftitle={$title$},$endif$
+  $if(author)$pdfauthor={$author$},$endif$
+}
+
+% ===== CUSTOM CHAPTER FORMATTING =====
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedleft \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \fontsize{60}{60}\selectfont\sffamily\color{chaptercolor}\thechapter
+        \par\nobreak
+        \vskip 10\p@
+    \fi
+    \interlinepenalty\@M
+    \sffamily\Huge\bfseries\color{chaptercolor} #1\par\nobreak
+    \vskip 5\p@
+    {\color{chaptercolor}\hrule height 0.4pt}
+    \vskip 40\p@
+  }}
+
+\def\@makeschapterhead#1{%
+  \vspace*{30\p@}%
+  {\parindent \z@ \raggedleft
+    \normalfont
+    \interlinepenalty\@M
+    \sffamily\Huge\bfseries\color{chaptercolor} #1\par\nobreak
+    \vskip 5\p@
+    {\color{chaptercolor}\hrule height 0.4pt}
+    \vskip 40\p@
+  }}
+\makeatother
+
+% ===== SECTION FORMATTING =====
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-3.5ex \@plus -1ex \@minus -.2ex}%
+  {2.3ex \@plus.2ex}%
+  {\normalfont\sffamily\Large\bfseries\color{sectioncolor}}}
+
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\sffamily\large\bfseries\color{sectioncolor}}}
+\makeatother
+
+% ===== HEADERS & FOOTERS =====
+\makeatletter
+\def\ps@headings{%
+  \let\@oddfoot\@empty\let\@evenfoot\@empty
+  \def\@evenhead{\small\itshape\leftmark\hfil\thepage}%
+  \def\@oddhead{\small\thepage\hfil\itshape\rightmark}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markboth {##1}{}}%
+  \def\sectionmark##1{%
+    \markright {##1}}}
+\makeatother
+\pagestyle{headings}
+
+% ===== DOCUMENT START =====
+\begin{document}
+
+% ===== TITLE PAGE =====
+$if(title)$
+\begin{titlepage}
+  \thispagestyle{empty}
+  \centering
+  \vspace*{3cm}
+
+  % Title
+  {\sffamily\fontsize{36}{42}\selectfont\bfseries\color{chaptercolor}
+    $title$
+    \par}
+
+  \vspace{1.2cm}
+
+  % Decorative line
+  {\color{chaptercolor}\rule{0.3\textwidth}{0.5pt}}
+
+  \vspace{2.5cm}
+
+  % Author
+  $if(author)$
+  {\sffamily\Large
+    $author$
+    \par}
+  $endif$
+
+  \vfill
+
+  % Date or publisher
+  $if(date)$
+  {\large $date$}
+  $endif$
+
+  \vspace{1.5cm}
+\end{titlepage}
+\cleardoublepage
+$endif$
+
+% ===== TABLE OF CONTENTS =====
+$if(toc)$
+{
+  \hypersetup{linkcolor=black}
+  \setcounter{tocdepth}{2}
+  \tableofcontents
+  \cleardoublepage
+}
+$endif$
+
+% ===== MAIN CONTENT =====
+\setcounter{page}{1}
+$body$
+
+\end{document}
