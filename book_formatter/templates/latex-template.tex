@@ -32,12 +32,16 @@
 \IfFontExistsTF{Avenir Next}{
   \setsansfont{Avenir Next}
 }{
-  \setsansfont{DejaVu Sans}
+  \IfFontExistsTF{DejaVu Sans}{
+    \setsansfont{DejaVu Sans}
+  }{}
 }
 \IfFontExistsTF{Courier New}{
   \setmonofont{Courier New}
 }{
-  \setmonofont{DejaVu Sans Mono}
+  \IfFontExistsTF{DejaVu Sans Mono}{
+    \setmonofont{DejaVu Sans Mono}
+  }{}
 }
 
 % ===== COLORS =====

@@ -198,14 +198,44 @@ def format_as_book(input_file, title, author, cover_image=None, formats="pdf,epu
 
     result = subprocess.run(cmd, env=env, capture_output=True, text=True)
 
-    if result.returncode == 0:
-        print("✓ Book formatted successfully!")
-        print(f"\nOutput location: {formatter_dir / 'output'}/")
-        return True
-    else:
+    if result.returncode != 0:
         print("Error formatting book:")
-        print(result.stderr)
+        if result.stderr:
+            print(result.stderr)
+        if result.stdout:
+            print(result.stdout)
         return False
+
+    # Check which output files were actually created
+    output_dir = formatter_dir / "output"
+    import re as _re
+    slug = _re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-') or "book"
+    requested = set(f.strip().lower() for f in formats.split(',') if f.strip())
+
+    created = {}
+    for fmt in requested:
+        path = output_dir / f"{slug}.{fmt}"
+        if path.exists():
+            created[fmt] = path
+
+    if created:
+        print("✓ Book formatted:")
+        for fmt, path in created.items():
+            print(f"  {fmt.upper()}: {path}")
+    else:
+        print("Warning: No output files were created")
+
+    # Report any formats that failed
+    failed = requested - set(created.keys())
+    if failed:
+        print(f"Warning: Failed to generate: {', '.join(f.upper() for f in failed)}")
+        if result.stdout:
+            # Show book_formatter output which contains error details
+            for line in result.stdout.splitlines():
+                if 'failed' in line.lower() or 'error' in line.lower() or 'warning' in line.lower():
+                    print(f"  {line}")
+
+    return bool(created)
 
 def generate_cover(haiku_list, title, author, output_dir):
     """Generate a DALL-E cover image and composite title/author text.

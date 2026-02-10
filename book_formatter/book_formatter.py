@@ -269,10 +269,15 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
 def run_cmd(cmd, exit_on_fail=True):
     click.echo("Running: " + " ".join(cmd))
     try:
-        subprocess.run(cmd, check=True)
+        subprocess.run(cmd, check=True, capture_output=True, text=True)
         return True
     except subprocess.CalledProcessError as e:
-        click.echo(f"Command failed: {e}")
+        click.echo(f"Command failed (exit code {e.returncode}):")
+        if e.stderr:
+            # Show last portion of stderr for debugging
+            stderr_lines = e.stderr.strip().splitlines()
+            for line in stderr_lines[-20:]:
+                click.echo(f"  {line}")
         if exit_on_fail:
             sys.exit(1)
         return False

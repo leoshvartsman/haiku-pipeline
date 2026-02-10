@@ -38,7 +38,9 @@
 \IfFontExistsTF{Avenir Next}{
   \setsansfont{Avenir Next}
 }{
-  \setsansfont{DejaVu Sans}
+  \IfFontExistsTF{DejaVu Sans}{
+    \setsansfont{DejaVu Sans}
+  }{}
 }
 
 % ===== COLORS =====
