@@ -4,6 +4,7 @@ Generate Haiku and Format as Book
 Integrates haiku generator with book formatter
 """
 
+import argparse
 import anthropic
 import os
 import sys
@@ -164,8 +165,8 @@ def save_for_book_formatter(haiku_list, title, author, notes_text="", suffix="")
     print(f"✓ Saved {len(haiku_list)} haiku to: {filename}\n")
     return filename
 
-def format_as_book(input_file, title, author, cover_image=None):
-    """Use book formatter to create PDF and EPUB"""
+def format_as_book(input_file, title, author, cover_image=None, formats="epub"):
+    """Use book formatter to create PDF and/or EPUB"""
 
     print("Formatting as book...")
 
@@ -184,15 +185,16 @@ def format_as_book(input_file, title, author, cover_image=None):
         str(input_file),
         "--title", title,
         "--author", author,
-        "--out-dir", str(formatter_dir / "output")
+        "--out-dir", str(formatter_dir / "output"),
+        "--formats", formats,
     ]
 
     if cover_image:
         cmd.extend(["--cover", str(cover_image)])
 
-    # Add PATH for LaTeX
+    # Add PATH for LaTeX (macOS BasicTeX path + Linux texlive)
     env = os.environ.copy()
-    env['PATH'] = f"/Library/TeX/texbin:{env['PATH']}"
+    env['PATH'] = f"/Library/TeX/texbin:/usr/local/bin:{env['PATH']}"
 
     result = subprocess.run(cmd, env=env, capture_output=True, text=True)
 
@@ -205,33 +207,105 @@ def format_as_book(input_file, title, author, cover_image=None):
         print(result.stderr)
         return False
 
+def generate_cover(haiku_list, title, author, output_dir):
+    """Generate a DALL-E cover image and composite title/author text.
+
+    Returns the path to the cover image, or None on failure.
+    """
+    # Build minimal haiku analyses for the cover prompt generator
+    analyses = [
+        {"haiku": h, "season": "timeless", "theme": "general",
+         "tone": "contemplative", "quality": 8.0, "imagery": []}
+        for h in haiku_list
+    ]
+    persona = {
+        "name": author,
+        "characteristic": "finds poetry in everyday moments",
+        "locations": {"current": ""},
+    }
+
+    script_dir = Path(__file__).parent
+    sys.path.insert(0, str(script_dir))
+    from cover_prompt_generator import (
+        generate_cover_prompt, save_cover_prompt,
+        generate_cover_image, composite_cover_text,
+    )
+
+    print("Generating cover prompt...")
+    cover_data, prompt_cost = generate_cover_prompt(analyses, title, author, persona)
+    save_cover_prompt(cover_data, output_dir, title)
+    print(f"  Cover prompt cost: ${prompt_cost:.4f}")
+
+    print("Generating cover image with DALL-E 3...")
+    image_path, image_cost = generate_cover_image(cover_data, output_dir, title)
+    if image_path:
+        print(f"  Image cost: ${image_cost:.3f}")
+        composite_cover_text(image_path, title, author, cover_data)
+        return image_path
+    else:
+        print("  Cover image generation skipped (no OPENAI_API_KEY?)")
+        return None
+
+
 def main():
-    """Main execution"""
+    """Main execution — supports both CLI args and interactive mode."""
+
+    parser = argparse.ArgumentParser(description="Generate haiku and format as book")
+    parser.add_argument("--test", action="store_true",
+                        help="Test mode: 5 haiku, auto title/author, non-interactive")
+    parser.add_argument("--count", type=int, default=None,
+                        help="Number of haiku to generate")
+    parser.add_argument("--title", default=None, help="Book title")
+    parser.add_argument("--author", default=None, help="Author name")
+    parser.add_argument("--theme", default="", help="Theme for haiku generation")
+    parser.add_argument("--cover", action="store_true",
+                        help="Generate a DALL-E cover image (requires OPENAI_API_KEY)")
+    parser.add_argument("--formats", default="epub",
+                        help="Output formats: pdf,epub (default: epub)")
+    args = parser.parse_args()
 
     if not os.getenv('ANTHROPIC_API_KEY'):
         print("Error: ANTHROPIC_API_KEY not found in .env file")
         print("Create a .env file with your API key")
         exit(1)
 
-    print("="*70)
-    print("HAIKU GENERATOR + BOOK FORMATTER")
-    print("="*70)
-    print()
+    # Test mode: small defaults, non-interactive
+    if args.test:
+        count = args.count or 5
+        title = args.title or "Test Haiku Collection"
+        author = args.author or "Test Author"
+        theme = args.theme or "nature, seasons"
+        make_cover = args.cover
+    elif args.count is not None or args.title is not None:
+        # CLI mode (any explicit arg skips interactive)
+        count = args.count or 250
+        title = args.title or "Haikus"
+        author = args.author or "Generated Collection"
+        theme = args.theme
+        make_cover = args.cover
+    else:
+        # Interactive mode (original behavior)
+        print("="*70)
+        print("HAIKU GENERATOR + BOOK FORMATTER")
+        print("="*70)
+        print()
 
-    # Get user input
-    count = input("How many haiku to generate? (default 250): ").strip()
-    count = int(count) if count.isdigit() else 250
+        count_input = input("How many haiku to generate? (default 250): ").strip()
+        count = int(count_input) if count_input.isdigit() else 250
+        theme = input("Theme (press Enter for mixed themes): ").strip()
+        title_input = input("Book title (default: Haikus): ").strip()
+        title = title_input if title_input else "Haikus"
+        author_input = input("Author name (default: Generated Collection): ").strip()
+        author = author_input if author_input else "Generated Collection"
+        make_cover = False
 
-    theme = input("Theme (press Enter for mixed themes): ").strip()
+        print()
+        print("="*70)
+        print()
 
-    title_input = input("Book title (default: Haikus): ").strip()
-    title = title_input if title_input else "Haikus"
-
-    author = input("Author name (default: Generated Collection): ").strip()
-    author = author if author else "Generated Collection"
-
-    print()
-    print("="*70)
+    print(f"Generating {count} haiku | Title: \"{title}\" | Author: {author}")
+    if make_cover:
+        print("Cover generation: enabled")
     print()
 
     # Generate haiku
@@ -244,18 +318,27 @@ def main():
     # Save for formatter
     input_file = save_for_book_formatter(haiku_list, title, author)
 
+    # Generate cover if requested
+    cover_image = None
+    output_dir = Path("haiku_output")
+    if make_cover:
+        cover_image = generate_cover(haiku_list, title, author, output_dir)
+
     # Format as book
-    success = format_as_book(input_file, title, author)
+    formats = args.formats if hasattr(args, 'formats') else "epub"
+    success = format_as_book(input_file, title, author, cover_image=cover_image, formats=formats)
 
     if success:
         print()
         print("="*70)
         print("COMPLETE!")
-        print(f"✓ Generated {len(haiku_list)} haiku")
-        print(f"✓ Created PDF and EPUB")
-        print(f"✓ Title: {title}")
-        print(f"✓ Author: {author}")
+        print(f"  {len(haiku_list)} haiku generated")
+        print(f"  Title: {title}")
+        print(f"  Author: {author}")
+        if cover_image:
+            print(f"  Cover: {cover_image}")
         print("="*70)
+
 
 if __name__ == "__main__":
     main()
