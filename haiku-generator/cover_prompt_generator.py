@@ -341,12 +341,12 @@ def composite_cover_text(
                         continue
         return ImageFont.load_default()
 
-    # Title font: refined, smaller for top-right placement
-    title_font_size = width // 14
+    # Title font: bold and prominent
+    title_font_size = width // 8
     title_font = load_font(["avenir next.ttc", "avenir.ttc", "helvetica neue", "helvetica"], title_font_size)
 
-    # Author font: lighter weight, refined
-    author_font_size = width // 28
+    # Author font: readable but secondary
+    author_font_size = width // 16
     author_font = load_font(["avenir next.ttc", "avenir.ttc", "helvetica neue", "helvetica"], author_font_size)
 
     # --- Determine text color based on top-right background ---
@@ -380,13 +380,13 @@ def composite_cover_text(
                 accent_color = (*rgb, 220)
                 break
 
-    # --- Layout text (top-right aligned, smaller print) ---
+    # --- Layout text (top-right aligned) ---
     title_upper = title.upper()
     right_margin = int(width * 0.08)
     top_margin = int(height * 0.06)
 
     # Word-wrap title
-    max_text_width = int(width * 0.55)
+    max_text_width = int(width * 0.75)
     title_lines = []
     words = title_upper.split()
     current_line = ""
@@ -403,8 +403,8 @@ def composite_cover_text(
 
     # Dimensions
     line_spacing = int(title_font_size * 0.2)
-    accent_line_width = int(width * 0.08)
-    accent_line_thickness = 2
+    accent_line_width = int(width * 0.15)
+    accent_line_thickness = 3
     spacing_after_title = int(title_font_size * 0.5)
     spacing_after_accent = int(author_font_size * 0.5)
 
