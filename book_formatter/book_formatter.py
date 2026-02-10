@@ -210,9 +210,9 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             "--template",
             str(template_dir / latex_template),
             "--pdf-engine=xelatex",
-            f"-V papersize:{latex_papersize}",
-            f"-V fontsize={font_size}",
-            f"-V fonts-dir={str(template_dir / 'fonts')}",
+            "-V", f"papersize:{latex_papersize}",
+            "-V", f"fontsize={font_size}",
+            "-V", f"fonts-dir={str(template_dir / 'fonts')}",
         ]
         if enable_toc:
             cmd.append("--toc")
