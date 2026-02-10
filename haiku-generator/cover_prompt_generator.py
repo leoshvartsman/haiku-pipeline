@@ -321,53 +321,37 @@ def composite_cover_text(
     overlay = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     draw = ImageDraw.Draw(overlay)
 
-    # --- Find fonts ---
-    def load_font(name_hints, size):
-        """Try to load a font from system paths, with bundled fallback."""
-        search_dirs = [
-            # macOS
-            Path("/System/Library/Fonts"),
-            Path("/System/Library/Fonts/Supplemental"),
-            Path("/Library/Fonts"),
-            # Linux / Colab
-            Path("/usr/share/fonts/truetype"),
-            Path("/usr/share/fonts/opentype"),
-            Path("/usr/local/share/fonts"),
-        ]
-        for font_dir in search_dirs:
-            if not font_dir.exists():
-                continue
-            for f in font_dir.rglob("*"):
-                if not f.is_file():
-                    continue
-                fname = f.name.lower()
-                if any(hint in fname for hint in name_hints):
-                    try:
-                        return ImageFont.truetype(str(f), size)
-                    except (OSError, IOError):
-                        continue
-        # Fallback: use bundled EB Garamond from the repo
+    # --- Load fonts ---
+    def load_font(size):
+        """Load a TrueType font at the given size. Tries bundled font first."""
+        # 1) Bundled EB Garamond (works everywhere — shipped in the repo)
         bundled = Path(__file__).parent.parent / "book_formatter" / "templates" / "fonts" / "EBGaramond-Regular.ttf"
         if bundled.exists():
             try:
                 return ImageFont.truetype(str(bundled), size)
             except (OSError, IOError):
                 pass
+        # 2) Common system fonts
+        candidates = [
+            "/System/Library/Fonts/Supplemental/Avenir Next.ttc",
+            "/System/Library/Fonts/Helvetica.ttc",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        ]
+        for path in candidates:
+            if Path(path).exists():
+                try:
+                    return ImageFont.truetype(path, size)
+                except (OSError, IOError):
+                    continue
+        print(f"  WARNING: No TrueType font found, cover text will be tiny")
         return ImageFont.load_default()
 
-    # Title font: bold and prominent
     title_font_size = width // 8
-    title_font = load_font([
-        "avenir next.ttc", "avenir.ttc", "helvetica neue", "helvetica",
-        "dejavusans-bold", "dejavu", "liberation", "arial",
-    ], title_font_size)
+    title_font = load_font(title_font_size)
 
-    # Author font: readable but secondary
     author_font_size = width // 16
-    author_font = load_font([
-        "avenir next.ttc", "avenir.ttc", "helvetica neue", "helvetica",
-        "dejavusans.", "dejavu", "liberation", "arial",
-    ], author_font_size)
+    author_font = load_font(author_font_size)
 
     # --- Determine text color based on top-right background ---
     sample = _sample_region_color(
