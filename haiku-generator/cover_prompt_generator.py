@@ -322,15 +322,19 @@ def composite_cover_text(
     draw = ImageDraw.Draw(overlay)
 
     # --- Load fonts ---
-    def load_font(size):
+    def load_font(size, label=""):
         """Load a TrueType font at the given size. Tries bundled font first."""
         # 1) Bundled EB Garamond (works everywhere — shipped in the repo)
         bundled = Path(__file__).parent.parent / "book_formatter" / "templates" / "fonts" / "EBGaramond-Regular.ttf"
+        print(f"  [DEBUG] {label}: looking for bundled font at {bundled}")
+        print(f"  [DEBUG] {label}: bundled exists = {bundled.exists()}")
         if bundled.exists():
             try:
-                return ImageFont.truetype(str(bundled), size)
-            except (OSError, IOError):
-                pass
+                font = ImageFont.truetype(str(bundled), size)
+                print(f"  [DEBUG] {label}: loaded bundled EB Garamond at size {size}, font={font}")
+                return font
+            except (OSError, IOError) as e:
+                print(f"  [DEBUG] {label}: bundled font failed: {e}")
         # 2) Common system fonts
         candidates = [
             "/System/Library/Fonts/Supplemental/Avenir Next.ttc",
@@ -341,17 +345,20 @@ def composite_cover_text(
         for path in candidates:
             if Path(path).exists():
                 try:
-                    return ImageFont.truetype(path, size)
+                    font = ImageFont.truetype(path, size)
+                    print(f"  [DEBUG] {label}: loaded system font {path} at size {size}")
+                    return font
                 except (OSError, IOError):
                     continue
         print(f"  WARNING: No TrueType font found, cover text will be tiny")
         return ImageFont.load_default()
 
+    print(f"  [DEBUG] Image size: {width}x{height}")
     title_font_size = width // 8
-    title_font = load_font(title_font_size)
+    title_font = load_font(title_font_size, "title")
 
     author_font_size = width // 16
-    author_font = load_font(author_font_size)
+    author_font = load_font(author_font_size, "author")
 
     # --- Determine text color based on top-right background ---
     sample = _sample_region_color(
