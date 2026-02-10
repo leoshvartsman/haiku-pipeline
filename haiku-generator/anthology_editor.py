@@ -23,7 +23,8 @@ from dotenv import load_dotenv
 load_dotenv()
 client = anthropic.Anthropic(
     api_key=os.getenv('ANTHROPIC_API_KEY'),
-    timeout=120.0  # 2 minute timeout to avoid hanging on stalled API calls
+    timeout=120.0,  # 2 minute timeout to avoid hanging on stalled API calls
+    max_retries=5,  # Auto-retry on 429/529 (overloaded) with exponential backoff
 )
 
 MODEL = "claude-sonnet-4-20250514"  # Using best model for analysis

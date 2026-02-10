@@ -16,7 +16,7 @@ from pathlib import Path
 load_dotenv()
 
 # Initialize client
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), max_retries=5)
 
 def generate_haiku_batch(count=250, theme="", persona=None, themes_list=None):
     """Generate a batch of haiku

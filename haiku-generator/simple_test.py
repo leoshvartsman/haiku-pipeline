@@ -13,7 +13,7 @@ from pathlib import Path
 load_dotenv()
 
 # Initialize client
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), max_retries=5)
 
 def generate_test_haiku():
     """Generate a small batch of haiku for testing"""

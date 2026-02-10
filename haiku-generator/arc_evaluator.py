@@ -16,7 +16,7 @@ import anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), timeout=120.0)
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), timeout=120.0, max_retries=5)
 MODEL = "claude-haiku-4-5-20251001"  # Evaluation task — Haiku handles well
 
 

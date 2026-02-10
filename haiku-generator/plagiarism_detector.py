@@ -17,7 +17,7 @@ import anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), timeout=120.0)
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), timeout=120.0, max_retries=5)
 MODEL = "claude-sonnet-4-20250514"
 
 CANONICAL_FILE = Path(__file__).parent / "canonical_haiku.json"

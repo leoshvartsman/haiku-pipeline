@@ -15,7 +15,7 @@ import anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), max_retries=5)
 MODEL = "claude-sonnet-4-20250514"
 
 

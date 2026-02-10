@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize client
-client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), max_retries=5)
 
 # Configuration
 HAIKU_TO_GENERATE = 2500
