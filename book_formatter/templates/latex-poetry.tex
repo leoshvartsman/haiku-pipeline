@@ -28,6 +28,12 @@
 \interlinepenalty=9999
 \raggedbottom
 
+% ===== PANDOC COMPATIBILITY =====
+% Pandoc generates these commands in the body; they must be defined
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passmark}{}
+\providecommand{\strmark}{}
+
 % ===== TYPOGRAPHY (bundled EB Garamond, system defaults for sans) =====
 \setmainfont[
   Path = $fonts-dir$/,

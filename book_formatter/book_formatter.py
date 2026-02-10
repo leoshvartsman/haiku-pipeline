@@ -275,15 +275,16 @@ def run_cmd(cmd, exit_on_fail=True):
         click.echo(f"Command failed (exit code {e.returncode}):")
         if e.stderr:
             stderr_lines = e.stderr.strip().splitlines()
-            # Show TeX/LaTeX error lines (start with !) and lines with 'Error'
-            error_lines = [l for l in stderr_lines
-                           if l.startswith('!') or 'error' in l.lower()
-                           or 'not found' in l.lower()]
-            if error_lines:
-                for line in error_lines[:15]:
-                    click.echo(f"  {line}")
-            else:
-                # Fallback: show last 10 lines
+            # Show TeX error lines (start with !) with surrounding context
+            shown = set()
+            for i, line in enumerate(stderr_lines):
+                if line.startswith('!') or 'error' in line.lower() or 'not found' in line.lower():
+                    # Show this line and up to 2 lines of context after it
+                    for j in range(i, min(i + 3, len(stderr_lines))):
+                        if j not in shown:
+                            click.echo(f"  {stderr_lines[j]}")
+                            shown.add(j)
+            if not shown:
                 for line in stderr_lines[-10:]:
                     click.echo(f"  {line}")
         if exit_on_fail:
