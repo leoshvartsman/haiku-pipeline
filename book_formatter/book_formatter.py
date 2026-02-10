@@ -274,10 +274,18 @@ def run_cmd(cmd, exit_on_fail=True):
     except subprocess.CalledProcessError as e:
         click.echo(f"Command failed (exit code {e.returncode}):")
         if e.stderr:
-            # Show last portion of stderr for debugging
             stderr_lines = e.stderr.strip().splitlines()
-            for line in stderr_lines[-20:]:
-                click.echo(f"  {line}")
+            # Show TeX/LaTeX error lines (start with !) and lines with 'Error'
+            error_lines = [l for l in stderr_lines
+                           if l.startswith('!') or 'error' in l.lower()
+                           or 'not found' in l.lower()]
+            if error_lines:
+                for line in error_lines[:15]:
+                    click.echo(f"  {line}")
+            else:
+                # Fallback: show last 10 lines
+                for line in stderr_lines[-10:]:
+                    click.echo(f"  {line}")
         if exit_on_fail:
             sys.exit(1)
         return False
