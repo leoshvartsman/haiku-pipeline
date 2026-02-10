@@ -346,10 +346,10 @@ def composite_cover_text(
                     continue
         return ImageFont.load_default()
 
-    title_font_size = width // 8
+    title_font_size = width // 16
     title_font = load_font(title_font_size)
 
-    author_font_size = width // 16
+    author_font_size = width // 32
     author_font = load_font(author_font_size)
 
     # --- Determine text color based on top-right background ---
