@@ -194,8 +194,10 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
         if fonts_dir.is_dir():
             for font_file in sorted(fonts_dir.glob("*.ttf")) + sorted(fonts_dir.glob("*.otf")):
                 cmd.extend(["--epub-embed-font", str(font_file)])
-        run_cmd(cmd)
-        outputs['epub'] = epub_out
+        if run_cmd(cmd, exit_on_fail=False):
+            outputs['epub'] = epub_out
+        else:
+            click.echo("Warning: EPUB generation failed, continuing...")
 
     # PDF (via LaTeX)
     if "pdf" in formats:
@@ -219,8 +221,10 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
         if cover_path:
             resource_paths.append(str(Path(cover_path).parent))
         cmd.extend(["--resource-path", ":".join(resource_paths)])
-        run_cmd(cmd)
-        outputs['pdf'] = pdf_out
+        if run_cmd(cmd, exit_on_fail=False):
+            outputs['pdf'] = pdf_out
+        else:
+            click.echo("Warning: PDF generation failed, continuing...")
 
     # MOBI via ebook-convert (Calibre)
     if "mobi" in formats:
@@ -262,13 +266,16 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
     return outputs
 
 
-def run_cmd(cmd):
+def run_cmd(cmd, exit_on_fail=True):
     click.echo("Running: " + " ".join(cmd))
     try:
         subprocess.run(cmd, check=True)
+        return True
     except subprocess.CalledProcessError as e:
         click.echo(f"Command failed: {e}")
-        sys.exit(1)
+        if exit_on_fail:
+            sys.exit(1)
+        return False
 
 
 def slugify(s: str) -> str:
