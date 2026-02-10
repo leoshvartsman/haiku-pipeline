@@ -152,7 +152,7 @@ def is_poetry_book(title: str, input_path: Path) -> bool:
                for keyword in poetry_keywords)
 
 
-def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, template_dir: Path, page_size: str, font_size: str, enable_toc: bool = True):
+def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, template_dir: Path, page_size: str, font_size: str, enable_toc: bool = True, cover_path=None):
     out_dir.mkdir(parents=True, exist_ok=True)
     outputs = {}
 
@@ -181,8 +181,14 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             "--css",
             str(template_dir / css_file),
         ])
+        # Add cover image for EPUB
+        if cover_path:
+            cmd.extend(["--epub-cover-image", str(cover_path)])
         # Ensure pandoc can find CSS, images and font files inside the repo/templates
-        cmd.extend(["--resource-path", f".:{str(template_dir)}"])
+        resource_paths = [".", str(template_dir)]
+        if cover_path:
+            resource_paths.append(str(Path(cover_path).parent))
+        cmd.extend(["--resource-path", ":".join(resource_paths)])
         # Embed font files so EPUBs render consistently across readers
         fonts_dir = template_dir / "fonts"
         if fonts_dir.is_dir():
@@ -204,11 +210,15 @@ def run_pandoc(md_file: Path, out_dir: Path, title: str, author: str, formats, t
             "--pdf-engine=xelatex",
             f"-V papersize:{latex_papersize}",
             f"-V fontsize={font_size}",
+            f"-V fonts-dir={str(template_dir / 'fonts')}",
         ]
         if enable_toc:
             cmd.append("--toc")
         # Ensure pandoc/xelatex can resolve any images or font files referenced in templates
-        cmd.extend(["--resource-path", f".:{str(template_dir)}"])
+        resource_paths = [".", str(template_dir)]
+        if cover_path:
+            resource_paths.append(str(Path(cover_path).parent))
+        cmd.extend(["--resource-path", ":".join(resource_paths)])
         run_cmd(cmd)
         outputs['pdf'] = pdf_out
 
@@ -310,7 +320,7 @@ def main(input_file, title, author, cover, out_dir, formats, page_size, font_siz
         click.echo("Error: 'pandoc' not found. Install Pandoc (https://pandoc.org/) before running this script.")
         sys.exit(1)
 
-    outputs = run_pandoc(md_file, out_dir, title, author, fmt_set, template_dir, page_size, font_size, enable_toc)
+    outputs = run_pandoc(md_file, out_dir, title, author, fmt_set, template_dir, page_size, font_size, enable_toc, cover_path=cover)
 
     click.echo("Done. Outputs:")
     for k, v in outputs.items():

@@ -28,9 +28,18 @@
 \interlinepenalty=9999
 \raggedbottom
 
-% ===== TYPOGRAPHY =====
-\setmainfont{Palatino}
-\setsansfont{Avenir Next}
+% ===== TYPOGRAPHY (cross-platform: bundled EB Garamond + system sans) =====
+\setmainfont[
+  Path = $fonts-dir$/,
+  Extension = .ttf,
+  UprightFont = EBGaramond-Regular,
+  ItalicFont = EBGaramond-Italic,
+]{EB Garamond}
+\IfFontExistsTF{Avenir Next}{
+  \setsansfont{Avenir Next}
+}{
+  \setsansfont{DejaVu Sans}
+}
 
 % ===== COLORS =====
 \definecolor{titlecolor}{RGB}{20,20,20}

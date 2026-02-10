@@ -22,10 +22,23 @@
 \setlength{\parindent}{1.5em}
 \setlength{\parskip}{0.3em}
 
-% ===== TYPOGRAPHY =====
-\setmainfont{Palatino}
-\setsansfont{Avenir Next}
-\setmonofont{Courier New}
+% ===== TYPOGRAPHY (cross-platform: bundled EB Garamond + system sans) =====
+\setmainfont[
+  Path = $fonts-dir$/,
+  Extension = .ttf,
+  UprightFont = EBGaramond-Regular,
+  ItalicFont = EBGaramond-Italic,
+]{EB Garamond}
+\IfFontExistsTF{Avenir Next}{
+  \setsansfont{Avenir Next}
+}{
+  \setsansfont{DejaVu Sans}
+}
+\IfFontExistsTF{Courier New}{
+  \setmonofont{Courier New}
+}{
+  \setmonofont{DejaVu Sans Mono}
+}
 
 % ===== COLORS =====
 \definecolor{chaptercolor}{RGB}{40,40,40}
