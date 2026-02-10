@@ -25,10 +25,31 @@ from typing import List, Dict, Tuple
 from datetime import datetime
 import anthropic
 import os
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
 client = anthropic.Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'), timeout=120.0, max_retries=5)
+
+
+def _api_call_with_retry(**kwargs):
+    """Wrap client.messages.create with explicit retry for 529 Overloaded errors."""
+    for attempt in range(6):
+        try:
+            return client.messages.create(**kwargs)
+        except anthropic.OverloadedError:
+            if attempt == 5:
+                raise
+            wait = 2 ** attempt
+            print(f"    API overloaded, retrying in {wait}s (attempt {attempt + 1}/6)...")
+            time.sleep(wait)
+        except anthropic.RateLimitError:
+            if attempt == 5:
+                raise
+            wait = 2 ** (attempt + 1)
+            print(f"    Rate limited, retrying in {wait}s (attempt {attempt + 1}/6)...")
+            time.sleep(wait)
+
 
 # Title tracking file
 TITLES_FILE = Path("haiku_output") / "used_titles.json"
@@ -78,7 +99,7 @@ GUIDELINES FOR THE TITLE:
 
 Respond with ONLY the title, nothing else."""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=MODEL,
         max_tokens=50,
         temperature=0.9,
@@ -171,7 +192,7 @@ Structure: 5-7-5 syllables (or natural variations).
 
 Output exactly {per_batch} haiku, each separated by a blank line. No numbering, no commentary."""
 
-        response = client.messages.create(
+        response = _api_call_with_retry(
             model=MODEL,
             max_tokens=4096,
             temperature=0.9,
@@ -384,7 +405,7 @@ Haiku:
 
 {formatted}"""
 
-        response = client.messages.create(
+        response = _api_call_with_retry(
             model=EVAL_MODEL,
             max_tokens=2000,
             temperature=0.3,

@@ -14,6 +14,7 @@ import anthropic
 import os
 import json
 import re
+import time
 from pathlib import Path
 from typing import List, Dict, Tuple, Optional
 from datetime import datetime
@@ -29,6 +30,25 @@ client = anthropic.Anthropic(
 
 MODEL = "claude-sonnet-4-20250514"  # Using best model for analysis
 SEQUENCING_MODEL = "claude-haiku-4-5-20251001"  # Cheaper model for sequencing pair comparisons
+
+
+def _api_call_with_retry(**kwargs):
+    """Wrap client.messages.create with explicit retry for 529 Overloaded errors."""
+    for attempt in range(6):
+        try:
+            return client.messages.create(**kwargs)
+        except anthropic.OverloadedError:
+            if attempt == 5:
+                raise
+            wait = 2 ** attempt  # 1, 2, 4, 8, 16, 32 seconds
+            print(f"    API overloaded, retrying in {wait}s (attempt {attempt + 1}/6)...")
+            time.sleep(wait)
+        except anthropic.RateLimitError:
+            if attempt == 5:
+                raise
+            wait = 2 ** (attempt + 1)  # 2, 4, 8, 16, 32, 64 seconds
+            print(f"    Rate limited, retrying in {wait}s (attempt {attempt + 1}/6)...")
+            time.sleep(wait)
 
 # ============================================================================
 # ANALYSIS FUNCTIONS
@@ -61,7 +81,7 @@ Haiku:
 
 {formatted}"""
 
-        response = client.messages.create(
+        response = _api_call_with_retry(
             model=MODEL,
             max_tokens=4000,
             temperature=0.3,
@@ -292,7 +312,7 @@ The opener should:
 
 Return ONLY a JSON object: {{"index": 0, "reason": "brief reason"}}"""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=SEQUENCING_MODEL,
         max_tokens=200,
         temperature=0.4,
@@ -352,7 +372,7 @@ Candidates:
 
 Return ONLY a JSON object: {{"index": 0, "relationship": "resonance|contrast|progression|surprise"}}"""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=SEQUENCING_MODEL,
         max_tokens=150,
         temperature=0.4,
@@ -605,7 +625,7 @@ Return a JSON object with this structure:
 
 Be creative and thoughtful. Create books that readers would want to explore individually."""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=MODEL,
         max_tokens=3000,
         temperature=0.7,
@@ -890,7 +910,7 @@ The introduction should:
 
 Tone: Warm, accessible, contemplative."""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=MODEL,
         max_tokens=800,
         temperature=0.7,
@@ -989,7 +1009,7 @@ The introduction should:
 
 Tone: Celebratory but accessible, honoring the tradition while welcoming new readers."""
 
-    response = client.messages.create(
+    response = _api_call_with_retry(
         model=MODEL,
         max_tokens=1200,
         temperature=0.7,
