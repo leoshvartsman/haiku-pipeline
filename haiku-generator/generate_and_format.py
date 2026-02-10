@@ -165,7 +165,7 @@ def save_for_book_formatter(haiku_list, title, author, notes_text="", suffix="")
     print(f"✓ Saved {len(haiku_list)} haiku to: {filename}\n")
     return filename
 
-def format_as_book(input_file, title, author, cover_image=None, formats="epub"):
+def format_as_book(input_file, title, author, cover_image=None, formats="pdf,epub"):
     """Use book formatter to create PDF and/or EPUB"""
 
     print("Formatting as book...")
