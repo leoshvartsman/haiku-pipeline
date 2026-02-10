@@ -366,14 +366,14 @@ def composite_cover_text(
         accent_color = (200, 200, 200, 180)
 
     # Override with palette accent if good contrast
+    def hex_to_rgb(hex_color):
+        h = hex_color.lstrip('#')
+        if len(h) != 6:
+            return None
+        return (int(h[:2], 16), int(h[2:4], 16), int(h[4:6], 16))
+
     palette = cover_data.get('color_palette', [])
     if palette:
-        def hex_to_rgb(hex_color):
-            h = hex_color.lstrip('#')
-            if len(h) != 6:
-                return None
-            return (int(h[:2], 16), int(h[2:4], 16), int(h[4:6], 16))
-
         for color_hex in palette:
             rgb = hex_to_rgb(color_hex)
             if rgb is None:
@@ -383,10 +383,35 @@ def composite_cover_text(
                 accent_color = (*rgb, 220)
                 break
 
-    # --- Layout text (top-right aligned) ---
+    # --- Determine author text color based on bottom-right background ---
+    bottom_sample = _sample_region_color(
+        img, int(width * 0.5), int(height * 0.80), width, height
+    )
+    bottom_brightness = _perceived_brightness(*bottom_sample)
+
+    if bottom_brightness > 140:
+        author_text_color = (30, 30, 30, 255)
+        author_accent_color = (80, 80, 80, 200)
+    else:
+        author_text_color = (245, 245, 245, 255)
+        author_accent_color = (200, 200, 200, 180)
+
+    # Override author accent with palette if good contrast
+    if palette:
+        for color_hex in palette:
+            rgb = hex_to_rgb(color_hex)
+            if rgb is None:
+                continue
+            color_brightness = _perceived_brightness(*rgb)
+            if abs(color_brightness - bottom_brightness) > 80:
+                author_accent_color = (*rgb, 220)
+                break
+
+    # --- Layout ---
     title_upper = title.upper()
     right_margin = int(width * 0.08)
     top_margin = int(height * 0.06)
+    bottom_margin = int(height * 0.06)
 
     # Word-wrap title
     max_text_width = int(width * 0.75)
@@ -409,15 +434,13 @@ def composite_cover_text(
     accent_line_width = int(width * 0.15)
     accent_line_thickness = 3
     spacing_after_title = int(title_font_size * 0.5)
-    spacing_after_accent = int(author_font_size * 0.5)
 
     author_bbox = draw.textbbox((0, 0), author, font=author_font)
     author_w = author_bbox[2] - author_bbox[0]
+    author_h = author_bbox[3] - author_bbox[1]
 
-    # --- Draw text (right-aligned from top) ---
+    # --- Draw title (top-right) ---
     y = top_margin
-
-    # Title lines — right-aligned
     for line in title_lines:
         bbox = draw.textbbox((0, 0), line, font=title_font)
         text_w = bbox[2] - bbox[0]
@@ -425,7 +448,7 @@ def composite_cover_text(
         draw.text((x, y), line, font=title_font, fill=text_color)
         y += title_font_size + line_spacing
 
-    # Accent line — right-aligned
+    # Title accent line
     y += spacing_after_title - line_spacing
     accent_x_right = width - right_margin
     accent_x_left = accent_x_right - accent_line_width
@@ -434,10 +457,17 @@ def composite_cover_text(
         fill=accent_color, width=accent_line_thickness
     )
 
-    # Author — right-aligned
-    y += accent_line_thickness + spacing_after_accent
+    # --- Draw author (bottom-right) ---
+    author_y = height - bottom_margin - author_h
     author_x = width - right_margin - author_w
-    draw.text((author_x, y), author, font=author_font, fill=text_color)
+    draw.text((author_x, author_y), author, font=author_font, fill=author_text_color)
+
+    # Author accent line (above author name)
+    accent_y = author_y - int(author_font_size * 0.5)
+    draw.line(
+        [(accent_x_left, accent_y), (accent_x_right, accent_y)],
+        fill=author_accent_color, width=accent_line_thickness
+    )
 
     # Composite
     result = Image.alpha_composite(img, overlay)
